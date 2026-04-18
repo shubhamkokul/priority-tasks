@@ -1,6 +1,6 @@
-# React Todo App — Built with Cline + Local LLM
+# Priority Tasks
 
-> A React + TypeScript todo app built entirely using **Cline** (VS Code AI coding agent) connected to **Qwen 2.5 Coder 14B** running on a rented RTX 3090 GPU via SSH tunnel. No OpenAI. No Anthropic.
+> A React + TypeScript task manager with priority levels, filters, and note-taking. Built entirely using **Cline** (VS Code AI coding agent) connected to **Qwen 2.5 Coder 14B** running on a rented RTX 3090 GPU via SSH tunnel. No OpenAI. No Anthropic.
 
 ---
 
@@ -60,4 +60,4 @@ npm start
 
 ## Related
 
-- [Cloud GPU Setup Guide](../cloud-gpu-llm-setup) — full setup walkthrough
+- [Cloud GPU Setup Guide](https://github.com/shubhamkokul/cloud-gpu-llm-setup) — full setup walkthrough
