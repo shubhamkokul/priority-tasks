@@ -1,46 +1,63 @@
-# Getting Started with Create React App
+# React Todo App — Built with Cline + Local LLM
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+> A React + TypeScript todo app built entirely using **Cline** (VS Code AI coding agent) connected to **Qwen 2.5 Coder 14B** running on a rented RTX 3090 GPU via SSH tunnel. No OpenAI. No Anthropic.
 
-## Available Scripts
+---
 
-In the project directory, you can run:
+## What This Demonstrates
 
-### `npm start`
+This app was created as a real-world test of the cloud GPU LLM setup documented at [cloud-gpu-llm-setup](../cloud-gpu-llm-setup). The goal: can a 14B open-source model, running on rented cloud hardware, generate production-quality React code via an AI coding agent?
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+**The answer: yes, for single-component tasks.**
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+---
 
-### `npm test`
+## Features
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- Add tasks with priority levels (Low / Medium / High)
+- Filter by All / Active / Completed
+- Toggle individual tasks or check/uncheck all
+- Clear completed tasks
+- TypeScript throughout
+- Tailwind CSS styling
 
-### `npm run build`
+---
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Stack
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+| Layer | Choice |
+|-------|--------|
+| Framework | React 18 + TypeScript |
+| Styling | Tailwind CSS |
+| AI Agent | Cline (VS Code extension) |
+| Model | Qwen 2.5 Coder 14B Q4_K_M |
+| Inference | Ollama on RTX 3090 (Vast.ai) |
+| Connection | SSH tunnel → localhost:11434 |
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+---
 
-### `npm run eject`
+## How It Was Built
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+```
+1. SSH tunnel opened → localhost:11434 forwards to remote GPU
+2. Cline configured → Ollama provider, http://localhost:11434, qwen2.5-coder:14b
+3. Cline prompted → "create a React todo app with priority levels and filters"
+4. Model generated → components, types, state management, styling
+5. Cline wrote files → showed diffs, asked for approval per change
+```
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+---
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+## Run It
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+```bash
+npm install
+npm start
+# Opens http://localhost:3000
+```
 
-## Learn More
+---
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## Related
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+- [Cloud GPU Setup Guide](../cloud-gpu-llm-setup) — full setup walkthrough
